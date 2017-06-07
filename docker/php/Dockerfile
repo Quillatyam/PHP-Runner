@@ -1,22 +1,22 @@
-FROM php:7.1.3-fpm
+FROM php:7.1-apache
 
 # Get updated packages list
 RUN apt-get update
 
 # Install packages
-RUN  apt-get install -y \
-        libmcrypt-dev \
-        libicu-dev \
-        lua5.2 \
-        liblua5.2 \
-        liblua5.2-dev \
-        libjpeg-dev \
-        libpng12-dev \
-        libfreetype6-dev \
-        vim \
-        git \
-        zip \
-        wget
+RUN  apt-get install -y git
+RUN  apt-get install -y libfreetype6-dev
+RUN  apt-get install -y libmcrypt-dev
+RUN  apt-get install -y libicu-dev
+RUN  apt-get install -y libjpeg-dev
+RUN  apt-get install -y liblua5.2
+RUN  apt-get install -y liblua5.2-dev
+RUN  apt-get install -y libpng12-dev
+RUN  apt-get install -y libzip-dev
+RUN  apt-get install -y lua5.2
+RUN  apt-get install -y vim
+RUN  apt-get install -y wget
+RUN  apt-get install -y zip
 
 # Configure gd extension
 RUN docker-php-ext-configure \

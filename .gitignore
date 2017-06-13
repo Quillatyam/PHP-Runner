@@ -2,6 +2,5 @@
 .idea/
 
 src/include/*
-config/*
 !.gitkeep
 src/index.php

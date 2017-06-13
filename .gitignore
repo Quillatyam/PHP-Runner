@@ -3,3 +3,4 @@
 
 src/include/*
 !.gitkeep
+/src/index.php

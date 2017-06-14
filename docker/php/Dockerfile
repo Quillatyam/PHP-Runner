@@ -31,7 +31,6 @@ RUN docker-php-ext-install -j$(nproc) \
         mcrypt \
         mysqli \
         pdo_mysql \
-        opcache \
         intl \
         gd \
         gettext \
@@ -45,8 +44,6 @@ RUN cp /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/lib/liblua.so
 
 # Install pecl extensions
 RUN pecl install redis
-RUN pecl install apcu
-RUN pecl install apcu_bc-1.0.3
 RUN pecl install lua
 RUN pecl install xdebug
 RUN pecl install zip
@@ -54,11 +51,5 @@ RUN pecl install zip
 #Enable pecl extension
 RUN docker-php-ext-enable redis
 RUN docker-php-ext-enable lua
-RUN docker-php-ext-enable apcu
-RUN docker-php-ext-enable apc
 RUN docker-php-ext-enable xdebug
 RUN docker-php-ext-enable zip
-
-# Rename ini files so the load in different order.
-RUN mv /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini /usr/local/etc/php/conf.d/00-docker-php-ext-apcu.ini
-RUN mv /usr/local/etc/php/conf.d/docker-php-ext-apc.ini /usr/local/etc/php/conf.d/10-docker-php-ext-apc.ini
